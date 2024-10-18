@@ -1,18 +1,16 @@
 import { Injectable } from "@angular/core"
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/router"
-import {Observable, of} from "rxjs"
-import { MajorService } from "services/major.service"
-import { Major } from "models/major.model"
+import {Observable} from "rxjs"
+import { Livres } from "models/livres.model"
+import {LivreService} from "../../services/livre.service";
 
 @Injectable({
   providedIn: "root",
 })
-export class LivresResolver implements Resolve<Major[]> {
-  //TODO : changer major service avec livresService plus tard en appelant la fct findAll
-  constructor(private majorService: MajorService) {
+export class LivresResolver implements Resolve<Livres[]> {
+  constructor(private livreService: LivreService) {
   }
-
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Major[]> {
-    return of([]);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Livres[]> {
+    return this.livreService.findAll();
   }
 }
