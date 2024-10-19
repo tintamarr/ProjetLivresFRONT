@@ -1,1 +1,17 @@
-<p>compte works!</p>
+<div class="compte_layer">
+  <div class="photo_et_pseudo">
+    <div class="photo_profil">
+      <img src="{{image_path}}">
+    </div>
+    <div class = "pseudo">
+      <p class="pseudo">{{utilisateurCompte.pseudo}}</p>
+    </div>
+  </div>
+
+  <div class="informations">
+    <p><strong>Nom:</strong> {{utilisateurCompte.nom}}</p>
+    <p><strong>Prénom:</strong> {{utilisateurCompte.prenom}}</p>
+    <p><strong>Email:</strong> {{utilisateurCompte.mail}}</p>
+    <p><strong>Date de naissance:</strong> {{utilisateurCompte.datenaissance | date}}</p>
+  </div>
+</div>
