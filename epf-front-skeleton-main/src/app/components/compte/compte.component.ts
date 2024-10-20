@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilisateurService } from '../../services/utilisateur.service';
 import { Utilisateur } from '../../models/utilisateur.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import {PhotoProfilDialogComponent} from "../photo-profil-dialog/photo-profil-dialog.component";
+
 
 @Component({
   selector: 'epf-compte',
@@ -17,7 +20,8 @@ export class CompteComponent implements OnInit {
   constructor(
     private utilisateurService: UtilisateurService,
     private fb: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {
     this.utilisateurForm = this.fb.group({
       pseudo: ['', Validators.required],
@@ -58,6 +62,30 @@ export class CompteComponent implements OnInit {
         }
       );
     }
+  }
+
+  openPhotoProfilDialog(): void {
+    const dialogRef = this.dialog.open(PhotoProfilDialogComponent, {
+      width: '700px',
+      data: { currentPhoto: this.utilisateurCompte.photo_profil }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.utilisateurCompte.photo_profil = result;
+        this.image_path = "assets/pp/pp_humains_" + this.utilisateurCompte.photo_profil + ".png";
+        this.updatePhotoProfil();
+      }
+    });
+  }
+
+  private updatePhotoProfil(): void {
+    const updatedUtilisateur: Utilisateur = {
+      ...this.utilisateurCompte,
+      photo_profil: this.utilisateurCompte.photo_profil
+    };
+
+    this.utilisateurService.updateUtilisateur(this.utilisateurCompte.idUtilisateur, updatedUtilisateur).subscribe();
   }
 
   private showNotification(message: string): void {

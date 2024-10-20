@@ -14,6 +14,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { LivresComponent } from './components/livres/livres.component';
 import { CompteComponent } from './components/compte/compte.component'
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { PhotoProfilDialogComponent } from './components/photo-profil-dialog/photo-profil-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     HomeComponent,
     LivresComponent,
     CompteComponent,
+    PhotoProfilDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     ReactiveFormsModule,
     MatSnackBarModule,
     MatButtonModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

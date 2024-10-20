@@ -2,6 +2,9 @@
   <div class="photo_et_pseudo">
     <div class="photo_profil">
       <img [src]="image_path" alt="Photo de profil">
+      <button mat-icon-button class="edit-icon"  (click)="openPhotoProfilDialog()">
+        <mat-icon>edit</mat-icon>
+      </button>
     </div>
     <div class="pseudo">
       <input type="text" [(ngModel)]="utilisateurCompte.pseudo" class="pseudo_input">
