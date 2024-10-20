@@ -8,11 +8,19 @@ html, body { height: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-mini-fab {
-  color : theme.$white !important;
+  color : theme.$beige_ecriture !important;
 }
 
 .mat-raised-button {
-  color : theme.$white !important;
+  color : theme.$beige_ecriture !important;
+}
+
+.beige-background{
+  background-color: $beige_ecriture;
+}
+
+.descend-sous-navbar{
+  padding-top: 100px;
 }
 
 table {
