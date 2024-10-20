@@ -7,12 +7,13 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { NavbarComponent } from "components/navbar/navbar.component"
 import { MatListModule } from "@angular/material/list"
 import { HomeComponent } from "components/home/home.component"
-import { FormsModule } from "@angular/forms"
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
 import { HttpClientModule } from "@angular/common/http";
 import { LivresComponent } from './components/livres/livres.component';
 import { CompteComponent } from './components/compte/compte.component'
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,9 @@ import { CompteComponent } from './components/compte/compte.component'
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

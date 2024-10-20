@@ -34,4 +34,9 @@ export class UtilisateurService {
   getUtilisateurByNom(nom: string): Observable<Utilisateur[]> {
     return this.http.get<Utilisateur[]>(`${this.utilisateurUrl}/nom/${nom}`);
   }
+
+  updateUtilisateur(id: number, utilisateur: Utilisateur): Observable<Utilisateur> {
+    return this.http.put<Utilisateur>(`${this.utilisateurUrl}/update/${id}`, utilisateur);
+  }
+
 }
