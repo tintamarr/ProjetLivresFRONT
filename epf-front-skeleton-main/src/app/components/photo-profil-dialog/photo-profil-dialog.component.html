@@ -1,0 +1,6 @@
+<h2>Choisissez une photo de profil</h2>
+<div class="photo-container">
+  <div *ngFor="let photo of photos">
+    <img [src]="'assets/pp/pp_humains_' + photo + '.png'" (click)="onSelect(photo)" class="image-style">
+  </div>
+</div>

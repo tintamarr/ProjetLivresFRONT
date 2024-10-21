@@ -1,1 +1,36 @@
-<p>compte works!</p>
+<div class="compte_layer">
+  <div class="photo_et_pseudo">
+    <div class="photo_profil">
+      <img [src]="image_path" alt="Photo de profil">
+      <button mat-icon-button class="edit-icon"  (click)="openPhotoProfilDialog()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+    <div class="pseudo">
+      <input type="text" [(ngModel)]="utilisateurCompte.pseudo" class="pseudo_input">
+    </div>
+  </div>
+
+  <div class="informations">
+    <form [formGroup]="utilisateurForm" (ngSubmit)="onSubmit($event)">
+      <label><strong>Pseudo:</strong></label>
+      <input formControlName="pseudo" type="text" />
+
+      <label><strong>Nom:</strong></label>
+      <input formControlName="nom" type="text" />
+
+      <label><strong>Prénom:</strong></label>
+      <input formControlName="prenom" type="text" />
+
+      <label><strong>Email:</strong></label>
+      <input formControlName="mail" type="email" />
+
+      <label><strong>Date de naissance:</strong></label>
+      <input formControlName="datenaissance" type="date" />
+
+      <div class="actions">
+        <button mat-raised-button class="custom-button" type="submit">Modifier</button>
+      </div>
+    </form>
+  </div>
+</div>

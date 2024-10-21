@@ -1,0 +1,86 @@
+@use "src/theme";
+
+input{
+  margin-bottom: 20px;
+}
+.compte_layer {
+  display: flex;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+.photo_et_pseudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.photo_profil {
+  transform: scale(0.4);
+  height: 200px;
+  width: 200px;
+  transform-origin: top left;
+}
+
+.pseudo {
+  color: theme.$noir-ecriture;
+  font-family: 'Dancing Script', cursive;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.informations {
+  color: theme.$noir-ecriture;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  border-color: theme.$noir-ecriture;
+  background-color: theme.$rose-clair;
+  min-width: 200px;
+}
+
+.pseudo_input {
+  font-family: 'Dancing Script', cursive;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  color: theme.$noir-ecriture;
+  border: none;
+  background-color: transparent;
+}
+
+.informations input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  font-size: 18px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.custom-button {
+  color: theme.$noir-ecriture  !important;
+  border: 2px solid theme.$noir-ecriture;
+  border-radius: 4px;
+  background-color: transparent;
+  &:hover{
+    background-color: rgba(25, 118, 210, 0.1);
+  }
+}
+
+.edit-icon {
+  width: 50px;
+  height: 50px;
+  transform: scale(2);
+  margin-left: 400px;
+  border: 2px solid theme.$noir-ecriture;
+  border-radius: 50%;
+  &:hover{
+    background-color: rgba(25, 118, 210, 0.1);
+  }
+}
