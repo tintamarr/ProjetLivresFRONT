@@ -7,7 +7,7 @@ import {LivreService} from "../../services/livre.service";
 @Injectable({
   providedIn: "root",
 })
-export class LivresResolver implements Resolve<Livres[]> {
+export class LivresPageResolver implements Resolve<Livres[]> {
   constructor(private livreService: LivreService) {
   }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Livres[]> {

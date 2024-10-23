@@ -1,0 +1,8 @@
+<div class="livre-details-container" [routerLink]="['/livre', livre.idLivre]">
+  <div class="livre-card">
+    <img class="livre-couverture" [src]="livre.couverture" alt="Couverture du livre" />
+    <h2 class="livre-titre">{{ livre.titre }}</h2>
+    <p class="livre-auteur">{{ livre.auteur }}</p>
+    <p class="livre-genre">{{ livre.genre }}</p>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+@use "src/theme";
+
+.livre-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin: 5px;
+}
+
+.livre-card {
+  background-color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+
+}
+
+.livre-couverture {
+  max-width: 80%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.livre-titre {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.livre-auteur, .livre-genre {
+  font-size: 0.9em;
+  color: #666;
+  margin: 3px 0;
+}

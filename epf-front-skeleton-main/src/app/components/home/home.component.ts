@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core"
+import {LivreService} from "../../services/livre.service";
+import {Livres} from "../../models/livres.model";
 
 @Component({
   selector: "epf-home",
@@ -6,11 +8,19 @@ import { Component, OnInit } from "@angular/core"
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-
-  constructor() {
+  listeLivres !: Livres[] ;
+  constructor(private livreService: LivreService) {
   }
 
   ngOnInit(): void {
+    this.getLivre();
+  }
+
+  getLivre(): void{
+    this.livreService.findAll().subscribe(livresReponse =>{
+        this.listeLivres = livresReponse;
+      });
   }
 
 }
+
