@@ -1,13 +1,25 @@
 <div class="home-page">
   <div class="nouveautes">
-    <div class = "input-search">
-      <mat-form-field>
-        <input matInput type="search">
+    <div class="input-search">
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          type="search"
+          placeholder="Rechercher un livre"
+          (input)="onSearchInput($event)"
+        />
         <button matSuffix mat-icon-button aria-label="Search">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
+      <div *ngIf="searchResults.length > 0" class="search-results">
+        <div *ngFor="let livre of searchResults" (click)="onLivreSelected(livre)">
+          <img *ngIf="livre.couverture" [src]="livre.couverture" alt="Couverture de {{ livre.titre }}" class="couverture" />
+          <span>{{ livre.titre }} - {{ livre.auteur }}</span>
+        </div>
+      </div>
     </div>
+    <h2 class="nouveautes-title">Nouveautés</h2>
     <div class="livres-container">
       <div *ngFor="let livre of listeLivres">
         <epf-livre-details [livreId]="livre.idLivre!"></epf-livre-details>
@@ -15,5 +27,3 @@
     </div>
   </div>
 </div>
-
-

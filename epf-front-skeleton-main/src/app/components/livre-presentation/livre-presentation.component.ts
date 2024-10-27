@@ -11,6 +11,10 @@ export class LivrePresentationComponent implements OnInit {
   @Input() livreId !: number;
   livre !: Livres;
 
+  //TODO: Faire une fonction qui recherche les nouveautés pour la div du bas
+  //TODO: faire les informations à droite
+  //TODO: faire en sorte que l'utilisateur soit une variable globale
+
   constructor(private livreService: LivreService) { }
 
   ngOnInit(): void {

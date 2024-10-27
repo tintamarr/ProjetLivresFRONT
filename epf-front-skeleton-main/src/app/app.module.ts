@@ -19,6 +19,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { LivrePresentationComponent } from './components/livre-presentation/livre-presentation.component';
 import { LivreInfosComponent } from './components/livre-infos/livre-infos.component';
 import {MatInputModule} from "@angular/material/input";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -31,21 +32,22 @@ import {MatInputModule} from "@angular/material/input";
     LivrePresentationComponent,
     LivreInfosComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatListModule,
-        FormsModule,
-        MatIconModule,
-        MatButtonModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        MatSnackBarModule,
-        MatButtonModule,
-        MatDialogModule,
-        MatInputModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    FormsModule,
+    MatIconModule,
+    MatButtonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    MatAutocompleteModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
