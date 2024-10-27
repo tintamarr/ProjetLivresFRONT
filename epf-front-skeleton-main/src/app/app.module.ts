@@ -18,6 +18,7 @@ import { PhotoProfilDialogComponent } from './components/photo-profil-dialog/pho
 import {MatDialogModule} from "@angular/material/dialog";
 import { LivrePresentationComponent } from './components/livre-presentation/livre-presentation.component';
 import { LivreInfosComponent } from './components/livre-infos/livre-infos.component';
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -30,20 +31,21 @@ import { LivreInfosComponent } from './components/livre-infos/livre-infos.compon
     LivrePresentationComponent,
     LivreInfosComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatListModule,
-    FormsModule,
-    MatIconModule,
-    MatButtonModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    MatButtonModule,
-    MatDialogModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatListModule,
+        FormsModule,
+        MatIconModule,
+        MatButtonModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatInputModule,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
