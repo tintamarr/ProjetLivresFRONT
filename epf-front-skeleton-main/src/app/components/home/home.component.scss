@@ -94,6 +94,11 @@ mat-icon {
   position: relative;
   height: 100%;
   margin-top: 5%;
+  transition: transform 0.3s ease;
+  &:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 }
 
 .cercle-couleur {

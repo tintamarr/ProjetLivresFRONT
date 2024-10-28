@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   //TODO : faire la barre de progression
   //TODO : faire un bouton add pour pouvoir ajouter un livre
+  //TODO: progress bar
 
   constructor(private livreService: LivreService, private livresEnCoursService : LivresEnCoursService, private router: Router) {}
 
@@ -74,4 +75,7 @@ export class HomeComponent implements OnInit {
   }
 
 
+  redirectionMesLivres():void {
+    this.router.navigate(['/livres']);
+  }
 }

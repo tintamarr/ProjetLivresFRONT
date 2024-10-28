@@ -26,7 +26,7 @@
       </div>
     </div>
   </div>
-  <div class="livre-selectionne" *ngIf="livreSelectionne">
+  <div class="livre-selectionne" *ngIf="livreSelectionne" (click)="redirectionMesLivres()">
     <h3 class="titre-livre">Livre en cours</h3>
     <div class="cercle-couleur"></div>
     <img
