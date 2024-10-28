@@ -4,6 +4,7 @@ import { Livres } from "../../models/livres.model";
 import { debounceTime, distinctUntilChanged, Subject } from "rxjs";
 import { Router } from '@angular/router';
 import {LivresEnCoursService} from "../../services/livresencours.service";
+import {UtilisateurService} from "../../services/utilisateur.service";
 
 @Component({
   selector: "epf-home",
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
   //TODO : faire un bouton add pour pouvoir ajouter un livre
   //TODO: progress bar
 
-  constructor(private livreService: LivreService, private livresEnCoursService : LivresEnCoursService, private router: Router) {}
+  constructor(private livreService: LivreService, private livresEnCoursService : LivresEnCoursService, private utilisateurService: UtilisateurService, private router: Router) {}
 
   ngOnInit(): void {
     this.getLivre();
@@ -45,7 +46,7 @@ export class HomeComponent implements OnInit {
   }
 
   getLivreSelection(): void{
-    this.livresEnCoursService.findByUtilisateur(1).subscribe( livreencoursListe =>{
+    this.livresEnCoursService.findByUtilisateur(this.utilisateurService.getUtilisateurPrincipalID()).subscribe( livreencoursListe =>{
       let livreencours;
       if (livreencoursListe) {
         livreencours = livreencoursListe[0];

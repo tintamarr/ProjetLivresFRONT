@@ -33,7 +33,7 @@ export class CompteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.utilisateurService.getUtilisateurById(1).subscribe(utilisateur => {
+    this.utilisateurService.getUtilisateurById(this.utilisateurService.getUtilisateurPrincipalID()).subscribe(utilisateur => {
       this.utilisateurCompte = utilisateur;
       this.image_path = "assets/pp/pp_humains_" + this.utilisateurCompte.photo_profil + ".png";
       this.utilisateurForm.patchValue(this.utilisateurCompte);

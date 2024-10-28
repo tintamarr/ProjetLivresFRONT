@@ -7,6 +7,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class UtilisateurService {
+  private utilisateurPrincipalID = 1;
   constructor(private http: HttpClient) {}
 
   private utilisateurUrl = "http://localhost:8080/utilisateurs";
@@ -39,4 +40,7 @@ export class UtilisateurService {
     return this.http.put<Utilisateur>(`${this.utilisateurUrl}/update/${id}`, utilisateur);
   }
 
+  getUtilisateurPrincipalID():number{
+    return this.utilisateurPrincipalID;
+  }
 }
