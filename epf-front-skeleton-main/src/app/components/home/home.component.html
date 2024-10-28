@@ -26,4 +26,13 @@
       </div>
     </div>
   </div>
+  <div class="livre-selectionne" *ngIf="livreSelectionne">
+    <h3 class="titre-livre">Livre en cours</h3>
+    <div class="cercle-couleur"></div>
+    <img
+      [src]="livreSelectionne.couverture"
+      alt="Couverture du livre sélectionné"
+      class="couverture-normale"
+    />
+  </div>
 </div>
