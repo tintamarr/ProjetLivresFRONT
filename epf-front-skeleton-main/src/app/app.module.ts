@@ -18,6 +18,8 @@ import { PhotoProfilDialogComponent } from './components/photo-profil-dialog/pho
 import {MatDialogModule} from "@angular/material/dialog";
 import { LivrePresentationComponent } from './components/livre-presentation/livre-presentation.component';
 import { LivreInfosComponent } from './components/livre-infos/livre-infos.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { LivreInfosComponent } from './components/livre-infos/livre-infos.compon
     MatSnackBarModule,
     MatButtonModule,
     MatDialogModule,
+    MatInputModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
