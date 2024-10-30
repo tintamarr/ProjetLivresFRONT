@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  width: 100%;
+}
+.titre{
+  text-align: center;
+}
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+

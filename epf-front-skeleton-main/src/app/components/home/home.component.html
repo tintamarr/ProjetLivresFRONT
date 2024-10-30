@@ -12,20 +12,33 @@
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
-      <div *ngIf="searchResults.length > 0" class="search-results">
+
+      <div *ngIf="searchResults.length > 0 || (searchPerformed && searchResults.length === 0)" class="search-results">
         <div *ngFor="let livre of searchResults" (click)="onLivreSelected(livre)">
           <img *ngIf="livre.couverture" [src]="livre.couverture" alt="Couverture de {{ livre.titre }}" class="couverture" />
           <span>{{ livre.titre }} - {{ livre.auteur }}</span>
         </div>
+
+        <div *ngIf="searchPerformed && searchResults.length === 0" class="search-no-results" (click)="openPopUpAjoutLivre()">
+          <span>Aucun livre trouvé, vous pouvez l'ajouter.</span>
+        </div>
       </div>
     </div>
-    <h2 class="nouveautes-title">Nouveautés</h2>
+
+
+    <h2 class="nouveautes-title">Nouveautés
+      <button mat-raised-button (click)="openPopUpAjoutLivre()" class="bouton-ajout">
+        <mat-icon>add</mat-icon>
+        Ajouter un livre
+      </button>
+    </h2>
     <div class="livres-container">
       <div *ngFor="let livre of listeLivres">
         <epf-livre-details [livreId]="livre.idLivre!"></epf-livre-details>
       </div>
     </div>
   </div>
+
   <div class="livre-selectionne" *ngIf="livreSelectionne" (click)="redirectionMesLivres()">
     <h3 class="titre-livre">Livre en cours</h3>
     <div class="cercle-couleur"></div>

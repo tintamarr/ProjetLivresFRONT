@@ -1,0 +1,54 @@
+<h2 mat-dialog-title class="titre">Ajouter un livre</h2>
+<mat-dialog-content>
+  <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Titre</mat-label>
+      <input matInput formControlName="titre" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Auteur</mat-label>
+      <input matInput formControlName="auteur" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Édition</mat-label>
+      <input matInput formControlName="edition" required/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Résumé</mat-label>
+      <textarea matInput formControlName="resume" ></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Genre</mat-label>
+      <input matInput formControlName="genre" required/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Couvreture (depuis internet : clic droit sur l'image et copier le lien de l'image)</mat-label>
+      <input matInput formControlName="couverture" required/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nombre de pages</mat-label>
+      <input type="number" matInput formControlName="nombre_pages" required/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Date de parution</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date_parution" required/>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Note</mat-label>
+      <input type="number" matInput formControlName="note" required/>
+    </mat-form-field>
+
+    <button mat-button mat-dialog-close>Annuler</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!addBookForm.valid">Ajouter</button>
+  </form>
+</mat-dialog-content>
