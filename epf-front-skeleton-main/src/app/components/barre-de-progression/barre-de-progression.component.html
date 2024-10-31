@@ -1,0 +1,11 @@
+<div class="progress-container" (click)="openPopup()">
+  <div class="progress-bar"
+       [style.width.%]="pourcentage"
+       [attr.aria-valuenow]="pourcentage"
+       aria-valuemin="0"
+       aria-valuemax="100">
+  </div>
+  <div class="progress-text">{{ pourcentage | number: '1.0-0'}}%</div>
+</div>
+
+<epf-popup-saisie-page *ngIf="showPopup" (pageSaisie)="onPageSaisie($event)"></epf-popup-saisie-page>

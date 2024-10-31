@@ -1,1 +1,23 @@
-  <p>livres works!</p>
+<h2 class="livres-title">Livres en cours</h2>
+<div class="container">
+  <div class="content">
+
+    <div class="livres-container">
+
+      <div *ngFor="let livreEnCours of livresEnCours">
+
+        <epf-livre-details [livreId]="livreEnCours.livre.idLivre!"></epf-livre-details>
+
+        <div class="progress-bar-container">
+          <epf-barre-de-progression
+            [nombre_pages]="livreEnCours.livre.nombre_pages"
+            [progression]="livreEnCours.progression">
+          </epf-barre-de-progression>
+        </div>
+      </div>
+    </div>
+
+    <img src="assets/Good_books.png" alt="Image Décorative" class="decorative-image" />
+  </div>
+</div>
+
