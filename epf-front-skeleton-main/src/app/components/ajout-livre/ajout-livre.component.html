@@ -38,9 +38,10 @@
 
     <mat-form-field>
       <mat-label>Date de parution</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date_parution" required/>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <input matInput formControlName="date_parution" placeholder="jj/MM/aaaa" required />
+      <mat-error *ngIf="addBookForm.get('date_parution')?.hasError('invalidDate')">
+        Format de date invalide. Utilisez le format jj/MM/aaaa.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>

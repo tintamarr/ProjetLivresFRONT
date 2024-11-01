@@ -24,8 +24,6 @@ export class HomeComponent implements OnInit {
 
 
   //TODO : faire la barre de progression
-  //TODO: faire le read-me qui explique le backend
-  //TODO : voir le problème avec la date dans add
 
   constructor(
     private livreService: LivreService,

@@ -33,13 +33,25 @@ export class AjoutLivreComponent {
 
   onSubmit(): void {
     if (this.addBookForm.valid) {
+      const dateParutionString = this.addBookForm.get('date_parution')?.value;
+      const dateParution = this.convertToDate(dateParutionString);
+
       const newLivre: Livres = {
         ...this.addBookForm.value,
+        date_parution: dateParution,
         date_ajout: new Date(),
       };
       this.livreService.createLivre(newLivre).subscribe(() => {
         this.dialogRef.close(true);
       });
     }
+  }
+
+  convertToDate(dateString: string): Date | null {
+    if (typeof dateString === 'string' && /^\d{2}\/\d{2}\/\d{4}$/.test(dateString)) {
+      const [day, month, year] = dateString.split('/').map(Number);
+      return new Date(year, month - 1, day);
+    }
+    return null;
   }
 }
