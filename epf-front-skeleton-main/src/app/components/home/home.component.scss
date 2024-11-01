@@ -144,6 +144,7 @@ mat-icon {
 
 .bouton-ajout{
   float: right;
+  margin-right: 20px;
   background-color: theme.$rose-clair;
   color: theme.$beige_ecriture;
   transition: transform 0.3s ease;
@@ -152,6 +153,19 @@ mat-icon {
     transform: scale(1.1);
   }
 }
+
+.bouton-tous-livres {
+  float: right;
+  margin-right: 10px;
+  background-color: theme.$rose-clair;
+  color: theme.$beige_ecriture;
+  transition: transform 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
 
 mat-icon{
   color: theme.$beige_ecriture;

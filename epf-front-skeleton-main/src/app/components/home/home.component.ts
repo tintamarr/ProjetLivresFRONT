@@ -7,6 +7,7 @@ import { LivresEnCoursService } from "../../services/livresencours.service";
 import { UtilisateurService } from "../../services/utilisateur.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AjoutLivreComponent} from "../ajout-livre/ajout-livre.component";
+import {ListeTousLivresComponent} from "../liste-tous-livres/liste-tous-livres.component";
 
 @Component({
   selector: "epf-home",
@@ -15,6 +16,7 @@ import {AjoutLivreComponent} from "../ajout-livre/ajout-livre.component";
 })
 export class HomeComponent implements OnInit {
   listeLivres: Livres[] = [];
+  listeLivresRecents: Livres[] = [];
   searchResults: Livres[] = [];
   searchInput$ = new Subject<string>();
   livreSelectionne!: Livres;
@@ -22,7 +24,6 @@ export class HomeComponent implements OnInit {
 
 
   //TODO : faire la barre de progression
-  //TODO: mettre la liste des listes en liste des nouveautés (en passant par le back)
   //TODO: faire le read-me qui explique le backend
   //TODO : voir le problème avec la date dans add
 
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLivre();
+    this.getLivresRecents();
     this.getLivreSelection();
     this.searchInput$.pipe(
       debounceTime(300),
@@ -91,7 +93,19 @@ export class HomeComponent implements OnInit {
   redirectionMesLivres(): void {
     this.router.navigate(['/livres']);
   }
+  openPopUpTousLivres(): void {
+    const dialogRef = this.dialog.open(ListeTousLivresComponent, {
+      width: "60%",
+      maxWidth: "80vw",
+      maxHeight: '80vh'
+    });
 
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.onLivreSelected(result); // Navigue vers le livre sélectionné
+      }
+    });
+  }
   openPopUpAjoutLivre(): void {
     const dialogRef = this.dialog.open(AjoutLivreComponent, {
       width: "75%",
@@ -102,7 +116,14 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.getLivre();
+        this.getLivresRecents();
       }
+    });
+  }
+
+  private getLivresRecents() {
+    this.livreService.find10MostRecentBooks().subscribe(listeResult =>{
+      this.listeLivresRecents = listeResult;
     });
   }
 }

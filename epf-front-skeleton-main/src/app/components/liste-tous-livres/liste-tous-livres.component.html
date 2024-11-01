@@ -1,0 +1,9 @@
+<div class="pop-up-overlay" (click)="closeDialog()">
+  <div class="all-books-container" (click)="$event.stopPropagation()">
+    <h1>Tous les livres</h1>
+    <div *ngFor="let livre of listeLivres" (click)="onLivreSelected(livre)" class="all-books">
+      <img *ngIf="livre.couverture" [src]="livre.couverture" alt="Couverture de {{ livre.titre }}" class="couverture" />
+      <span>{{ livre.titre }} - {{ livre.auteur }}</span>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,7 @@
           (input)="onSearchInput($event)"
         />
         <button matSuffix mat-icon-button aria-label="Search">
+
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
@@ -26,14 +27,18 @@
     </div>
 
 
-    <h2 class="nouveautes-title">Nouveautés
+    <h2 class="nouveautes-title">Nouveautés sur le site
+      <button mat-raised-button (click)="openPopUpTousLivres()" class="bouton-tous-livres">
+        <mat-icon>menu_book</mat-icon>
+        Tous les livres
+      </button>
       <button mat-raised-button (click)="openPopUpAjoutLivre()" class="bouton-ajout">
         <mat-icon>add</mat-icon>
         Ajouter un livre
       </button>
     </h2>
     <div class="livres-container">
-      <div *ngFor="let livre of listeLivres">
+      <div *ngFor="let livre of listeLivresRecents">
         <epf-livre-details [livreId]="livre.idLivre!"></epf-livre-details>
       </div>
     </div>

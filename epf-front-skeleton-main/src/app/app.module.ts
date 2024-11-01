@@ -24,6 +24,7 @@ import { AjoutLivreComponent } from './components/ajout-livre/ajout-livre.compon
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {DateAdapter, MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import { ListeTousLivresComponent } from './components/liste-tous-livres/liste-tous-livres.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     LivrePresentationComponent,
     LivreInfosComponent,
     AjoutLivreComponent,
+    ListeTousLivresComponent,
   ],
     imports: [
         BrowserModule,
