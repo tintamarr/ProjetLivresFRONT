@@ -27,7 +27,6 @@ const routes: Routes = [
     path: "livre/:id",
     component: LivreInfosComponent,
   },
-
 ]
 
 @NgModule({

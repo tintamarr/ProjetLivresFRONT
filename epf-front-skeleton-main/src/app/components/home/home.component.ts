@@ -3,8 +3,11 @@ import { LivreService } from "../../services/livre.service";
 import { Livres } from "../../models/livres.model";
 import { debounceTime, distinctUntilChanged, Subject } from "rxjs";
 import { Router } from '@angular/router';
-import {LivresEnCoursService} from "../../services/livresencours.service";
-import {UtilisateurService} from "../../services/utilisateur.service";
+import { LivresEnCoursService } from "../../services/livresencours.service";
+import { UtilisateurService } from "../../services/utilisateur.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AjoutLivreComponent} from "../ajout-livre/ajout-livre.component";
+import {ListeTousLivresComponent} from "../liste-tous-livres/liste-tous-livres.component";
 
 @Component({
   selector: "epf-home",
@@ -13,21 +16,26 @@ import {UtilisateurService} from "../../services/utilisateur.service";
 })
 export class HomeComponent implements OnInit {
   listeLivres: Livres[] = [];
+  listeLivresRecents: Livres[] = [];
   searchResults: Livres[] = [];
   searchInput$ = new Subject<string>();
-  livreSelectionne !: Livres;
+  livreSelectionne!: Livres;
+  searchPerformed = false;
 
 
   //TODO : faire la barre de progression
-  //TODO : faire un bouton add pour pouvoir ajouter un livre
-  //TODO: progress bar
-  //TODO: fill la bdd mais proprement
-  //TODO: mettre la liste des listes en liste des nouveautés (en passant par le back)
 
-  constructor(private livreService: LivreService, private livresEnCoursService : LivresEnCoursService, private utilisateurService: UtilisateurService, private router: Router) {}
+  constructor(
+    private livreService: LivreService,
+    private livresEnCoursService: LivresEnCoursService,
+    private utilisateurService: UtilisateurService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getLivre();
+    this.getLivresRecents();
     this.getLivreSelection();
     this.searchInput$.pipe(
       debounceTime(300),
@@ -37,6 +45,7 @@ export class HomeComponent implements OnInit {
         this.searchLivre(searchTerm);
       } else {
         this.searchResults = [];
+        this.searchPerformed = false;
       }
     });
   }
@@ -47,24 +56,27 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getLivreSelection(): void{
-    this.livresEnCoursService.findByUtilisateur(this.utilisateurService.getUtilisateurPrincipalID()).subscribe( livreencoursListe =>{
-      let livreencours;
-      if (livreencoursListe) {
-        livreencours = livreencoursListe[0];
-        const idLivre = livreencours.livre.idLivre;
-        if (idLivre !== undefined) {
-          this.livreService.findById(idLivre).subscribe(livre => this.livreSelectionne = livre);
+  getLivreSelection(): void {
+    this.livresEnCoursService.findByUtilisateur(this.utilisateurService.getUtilisateurPrincipalID())
+      .subscribe(livreencoursListe => {
+        let livreencours;
+        if (livreencoursListe) {
+          livreencours = livreencoursListe[0];
+          const idLivre = livreencours.livre.idLivre;
+          if (idLivre !== undefined) {
+            this.livreService.findById(idLivre).subscribe(livre => this.livreSelectionne = livre);
+          }
         }
-      }
-    });
+      });
   }
 
   onSearchInput(event: any): void {
     const searchTerm = event.target.value.trim();
     this.searchInput$.next(searchTerm);
   }
+
   searchLivre(searchTerm: string): void {
+    this.searchPerformed = true;
     this.searchResults = this.listeLivres.filter((livre) =>
       livre.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
       livre.auteur.toLowerCase().includes(searchTerm.toLowerCase())
@@ -72,13 +84,44 @@ export class HomeComponent implements OnInit {
   }
 
   onLivreSelected(livre: Livres): void {
-    console.log("Livre sélectionné :", livre);
     this.router.navigate(['/livre', livre.idLivre]);
     this.searchResults = [];
   }
 
-
-  redirectionMesLivres():void {
+  redirectionMesLivres(): void {
     this.router.navigate(['/livres']);
+  }
+  openPopUpTousLivres(): void {
+    const dialogRef = this.dialog.open(ListeTousLivresComponent, {
+      width: "60%",
+      maxWidth: "80vw",
+      maxHeight: '80vh'
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.onLivreSelected(result); // Navigue vers le livre sélectionné
+      }
+    });
+  }
+  openPopUpAjoutLivre(): void {
+    const dialogRef = this.dialog.open(AjoutLivreComponent, {
+      width: "75%",
+      maxWidth: "80vw",
+      maxHeight: '80vh'
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.getLivre();
+        this.getLivresRecents();
+      }
+    });
+  }
+
+  private getLivresRecents() {
+    this.livreService.find10MostRecentBooks().subscribe(listeResult =>{
+      this.listeLivresRecents = listeResult;
+    });
   }
 }

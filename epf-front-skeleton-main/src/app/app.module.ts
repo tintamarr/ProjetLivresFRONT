@@ -20,6 +20,11 @@ import { LivrePresentationComponent } from './components/livre-presentation/livr
 import { LivreInfosComponent } from './components/livre-infos/livre-infos.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { AjoutLivreComponent } from './components/ajout-livre/ajout-livre.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {DateAdapter, MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import { ListeTousLivresComponent } from './components/liste-tous-livres/liste-tous-livres.component';
 
 @NgModule({
   declarations: [
@@ -31,24 +36,31 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     PhotoProfilDialogComponent,
     LivrePresentationComponent,
     LivreInfosComponent,
+    AjoutLivreComponent,
+    ListeTousLivresComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatListModule,
-    FormsModule,
-    MatIconModule,
-    MatButtonModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatInputModule,
-    MatAutocompleteModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatListModule,
+        FormsModule,
+        MatIconModule,
+        MatButtonModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatInputModule,
+        MatAutocompleteModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatFormFieldModule
+    ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -46,4 +46,9 @@ export class LivreService {
   countLivres(): Observable<number> {
     return this.http.get<number>(`${this.livreUrl}/count`);
   }
+
+  find10MostRecentBooks(): Observable<Livres[]> {
+    return this.http.get<Livres[]>(`${this.livreUrl}/recents`);
+  }
+
 }

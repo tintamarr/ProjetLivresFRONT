@@ -39,12 +39,12 @@ mat-icon {
 }
 
 .livres-container {
+  margin-left: 20px;
   flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 0;
-  margin: 0;
   overflow-y: auto;
   height: 100%;
 }
@@ -70,12 +70,17 @@ mat-icon {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.search-results div {
+.search-results div,
+.search-no-results {
   padding: 10px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #444;
 }
 
-.search-results div:hover {
+.search-results div:hover,
+.search-no-results:hover {
   background-color: #f1f1f1;
 }
 
@@ -84,6 +89,11 @@ mat-icon {
   height: auto;
   margin-right: 10px;
   vertical-align: middle;
+}
+
+.search-no-results {
+  color: #888;
+  font-style: italic;
 }
 
 .livre-selectionne {
@@ -95,7 +105,8 @@ mat-icon {
   height: 100%;
   margin-top: 5%;
   transition: transform 0.3s ease;
-  &:hover{
+
+  &:hover {
     cursor: pointer;
     transform: scale(1.1);
   }
@@ -129,4 +140,33 @@ mat-icon {
   width: 100%;
   z-index: 2;
   margin-top: 0;
+}
+
+.bouton-ajout{
+  float: right;
+  margin-right: 20px;
+  background-color: theme.$rose-clair;
+  color: theme.$beige_ecriture;
+  transition: transform 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+.bouton-tous-livres {
+  float: right;
+  margin-right: 10px;
+  background-color: theme.$rose-clair;
+  color: theme.$beige_ecriture;
+  transition: transform 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+
+mat-icon{
+  color: theme.$beige_ecriture;
 }
