@@ -1,4 +1,4 @@
-@use "src/theme";
+@use "theme";
 
 .livre-details-container {
   display: flex;
@@ -12,25 +12,30 @@
   background-color: whitesmoke;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  padding: 5px;
   text-align: center;
-  width: 200px;
-
+  width: 180px;//modif
+  height: 200px;//Ajout
+  overflow: hidden;
+  margin-left: 10px;
 }
 
 .livre-couverture {
   max-width: 80%;
-  height: auto;
+  height: 115px;//modif
   border-radius: 4px;
 }
 
 .livre-titre {
-  font-size: 1.2em;
-  margin: 5px 0;
+  font-size: 0.9em;//modif
+  margin-bottom: 0.01em;//modif
+
 }
 
-.livre-auteur, .livre-genre {
-  font-size: 0.9em;
+.livre-auteur, .livre-genre  {
+  font-size: 0.75em;//modif
   color: #666;
-  margin: 3px 0;
+  margin-bottom: 0.01em;//modif
+
 }
+

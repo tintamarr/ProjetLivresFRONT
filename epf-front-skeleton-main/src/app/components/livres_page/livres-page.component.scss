@@ -1,0 +1,44 @@
+@use "theme";
+.container {
+  display: flex;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%; // Assurez-vous que le conteneur occupe toute la largeur de l'écran
+  padding: 0;
+}
+
+.progress-bar-container{
+  width: 920%;
+  position: relative;
+  margin-left: 14px;
+}
+.livres-container{
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  overflow-y: auto;
+  height: 260px;
+  width:620px;
+  scrollbar-color:#f3beba whitesmoke;
+  margin-right: 70px;
+}
+.decorative-image {
+  height: 200px; // Ajustez la taille de l'image si nécessaire
+  max-width: 400px; // Limitez la largeur de l'image
+  //margin: auto;
+  margin-bottom: 40px;
+}
+
+.livres-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 26px;
+  font-weight: bold;
+  color: theme.$noir-ecriture;
+  margin-left:28px;
+
+  text-align: left;
+}

@@ -20,6 +20,8 @@ import { LivrePresentationComponent } from './components/livre-presentation/livr
 import { LivreInfosComponent } from './components/livre-infos/livre-infos.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {BarreDeProgressionComponent} from "./components/barre-de-progression/barre-de-progression.component";
+import {PopupSaisiePageComponent} from "./components/popup-saisie-page/popup-saisie-page.component";
 import { AjoutLivreComponent } from './components/ajout-livre/ajout-livre.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {DateAdapter, MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
@@ -36,6 +38,8 @@ import { ListeTousLivresComponent } from './components/liste-tous-livres/liste-t
     PhotoProfilDialogComponent,
     LivrePresentationComponent,
     LivreInfosComponent,
+    BarreDeProgressionComponent,
+    PopupSaisiePageComponent,
     AjoutLivreComponent,
     ListeTousLivresComponent,
   ],
