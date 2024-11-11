@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'epf-popup-saisie-page',
@@ -6,25 +6,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./popup-saisie-page.component.scss']
 })
 export class PopupSaisiePageComponent {
-  pageActuelle: number = 0;
-  isPopupVisible: boolean = false; // Variable pour contrôler la visibilité du popup
-
+  @Input() isVisible: boolean = false;
   @Output() pageSaisie = new EventEmitter<number>();
 
-  // Méthode pour ouvrir le popup
-  openPopup() {
-    this.isPopupVisible = true;
-  }
+  pageActuelle: number = 0;
 
-  // Méthode pour envoyer la page saisie et fermer le popup
   submitPage() {
     this.pageSaisie.emit(this.pageActuelle);
     this.closePopup();
   }
 
-  // Méthode pour fermer le popup
   closePopup() {
-    this.isPopupVisible = false; // Masquer le popup
-    this.pageActuelle = 0;       // Réinitialiser la valeur
+    this.isVisible = false;
+    this.pageActuelle = 0;
   }
 }

@@ -1,14 +1,11 @@
 <h2 class="livres-title">Livres en cours</h2>
-<div class="container">
+<div class="container livres-en-cours-container">
   <div class="content">
-
-    <div class="livres-container">
-
+    <div class="livres-container livres-en-cours">
       <div *ngFor="let livreEnCours of livresEnCours">
-
         <epf-livre-details [livreId]="livreEnCours.livre.idLivre!"></epf-livre-details>
 
-        <div class="progress-bar-container">
+        <div class="progress-bar-container" (click)="onProgressBarClick(livreEnCours)">
           <epf-barre-de-progression
             [nombre_pages]="livreEnCours.livre.nombre_pages"
             [progression]="livreEnCours.progression">
@@ -16,8 +13,36 @@
         </div>
       </div>
     </div>
-
     <img src="assets/Good_books.png" alt="Image Décorative" class="decorative-image" />
   </div>
 </div>
 
+<epf-popup-saisie-page
+  [isVisible]="isPopupVisible"
+  >
+</epf-popup-saisie-page>
+
+
+
+<div class="container titres-pile-lus">
+  <h2 class="titre-pile-a-lire">Pile à lire</h2>
+  <h2 class="livres-title titre-livres-lus">
+    Livres déjà lus : <span>{{ getNombreLivresLus() }}</span>
+  </h2>
+</div>
+
+<div class="container pile-a-lire-et-livres-lus-container">
+  <div class="content">
+    <div class="livres-container pile-a-lire">
+      <div *ngFor="let pileLivre of pileALire">
+        <epf-livre-details [livreId]="pileLivre.livre.idLivre!"></epf-livre-details>
+      </div>
+    </div>
+
+    <div class="livres-container livres-lus">
+      <div *ngFor="let livreLus of livresLus">
+        <epf-livre-details [livreId]="livreLus.livre.idLivre!"></epf-livre-details>
+      </div>
+    </div>
+  </div>
+</div>

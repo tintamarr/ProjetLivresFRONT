@@ -1,2 +1,38 @@
-<p>livre-infos works!</p>
-<p>Titre : {{livre.titre}}</p>
+<div class="book-container">
+  <div class="book-cover">
+    <img :src="{{ livre.couverture }}" alt="Couverture du livre">
+  </div>
+
+  <div class="book-details">
+    <div class="infos-header">
+      <h2>Infos</h2>
+      <button (click)="ajouterALaPile()" class="pile-a-lire-btn">Ajouter à la pile à lire</button>
+    </div>
+
+
+    <div class="infos-titre-encours">
+      <p class="book-title"><span>Titre :</span> {{ livre.titre }}</p>
+      <button (click)=" ajouterLivreEnCours()" class="livres-en-cours-btn">Ajouter aux livres en cours</button>
+    </div>
+
+    <p><span>Auteur :</span> {{ livre.auteur }}</p>
+    <p><span>Résumé :</span> {{ livre.resume }}</p>
+    <p><span>Date de parution :</span> {{ livre.date_parution }}</p>
+    <p><span>Genre :</span> {{ livre.genre }}</p>
+    <p><span>Nombre de pages :</span> {{ livre.nombre_pages }}</p>
+    <p><span>Note :</span> {{ livre.note }} / 5</p>
+
+    <div class="book-comments">
+      <h2>Commentaires</h2>
+      <div *ngIf="commentaires.length === 0">
+        <p>Aucun commentaire pour ce livre.</p>
+      </div>
+      <div *ngFor="let commentaire of commentaires">
+        <div class="comment">
+          <p><strong>{{ commentaire.utilisateur.nom }}</strong> (Note: {{ commentaire.noteUnique }} / 5)</p>
+          <p>{{ commentaire.commentaire }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

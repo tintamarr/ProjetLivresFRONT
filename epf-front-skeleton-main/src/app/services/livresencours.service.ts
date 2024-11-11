@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class LivresEnCoursService {
+
   constructor(private http: HttpClient) {}
 
   private livresEnCoursUrl = "http://localhost:8080/livresencours";
@@ -39,4 +40,7 @@ export class LivresEnCoursService {
   countLivresEnCours(): Observable<number> {
     return this.http.get<number>(`${this.livresEnCoursUrl}/count`);
   }
+
+
+
 }

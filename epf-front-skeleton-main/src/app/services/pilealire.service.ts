@@ -39,4 +39,5 @@ export class PileALireService {
   countPileALire(): Observable<number> {
     return this.http.get<number>(`${this.pileALireUrl}/count`);
   }
+
 }

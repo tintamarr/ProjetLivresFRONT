@@ -1,4 +1,4 @@
-<<div class="popup">
+<div class="popup" *ngIf="isVisible">
   <div class="popup-content">
     <h2>Indiquez votre page actuelle</h2>
     <input type="number" [(ngModel)]="pageActuelle" min="1" placeholder="Page actuelle" />
@@ -6,4 +6,3 @@
     <button (click)="closePopup()">Annuler</button>
   </div>
 </div>
-
