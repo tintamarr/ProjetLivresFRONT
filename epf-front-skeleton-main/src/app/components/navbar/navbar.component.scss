@@ -2,11 +2,11 @@
 nav {
   height: 80px;
   background: linear-gradient(to right, theme.$rose-fonce, theme.$rose-clair);
-  position: fixed;  // Change la position en 'fixed'
-  top: 0;           // Fixe la barre en haut de la page
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%;      // Assure-toi que la barre occupe toute la largeur de l'écran
-  z-index: 1000;    // Ajoute un z-index élevé pour qu'elle soit toujours visible au-dessus des autres éléments
+  width: 100%;
+  z-index: 1000;
   div {
     height: 100%;
     display: flex;
@@ -53,13 +53,13 @@ nav {
 }
 
 .image-hiboux {
-  position: absolute;  // Ajoute un positionnement absolu
-  right: 20px;         // Place l'image à droite
-  bottom: -20px;       // Fais en sorte que l'image dépasse de 20px vers le bas
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
   transform: scale(1.5);
   margin-right: 30px;
   img {
-    height: 100px;     // Augmente la taille de l'image pour qu'elle dépasse visuellement
+    height: 100px;
     transition: .3s;
 
     &:hover {

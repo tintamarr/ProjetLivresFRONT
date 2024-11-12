@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   searchPerformed = false;
 
 
-  //TODO : faire la barre de progression
+
 
   constructor(
     private livreService: LivreService,
@@ -100,7 +100,7 @@ export class HomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.onLivreSelected(result); // Navigue vers le livre sélectionné
+        this.onLivreSelected(result);
       }
     });
   }

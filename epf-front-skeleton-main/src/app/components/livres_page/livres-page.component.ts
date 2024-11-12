@@ -18,7 +18,7 @@ export class LivresPageComponent implements OnInit {
   livresLus: Livreslus[] = [];
 
   isPopupVisible: boolean = false;
-  //livreEnCoursSelectionne!: Livresencours;
+
 
   constructor(
     private livresEnCoursService: LivresEnCoursService,
@@ -61,7 +61,6 @@ export class LivresPageComponent implements OnInit {
   }
 
   onProgressBarClick(livreEnCours: Livresencours) {
-    //this.livreEnCoursSelectionne = livreEnCours;
     this.isPopupVisible = true;
   }
 

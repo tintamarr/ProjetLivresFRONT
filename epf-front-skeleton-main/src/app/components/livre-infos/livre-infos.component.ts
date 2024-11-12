@@ -17,12 +17,12 @@ import {LivresEnCoursService} from "../../services/livresencours.service"; // Aj
 })
 export class LivreInfosComponent implements OnInit {
   livre!: Livres;
-  commentaires: Commentaires[] = []; // Liste des commentaires du livre
+  commentaires: Commentaires[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private livreService: LivreService,
-    private commentairesService: CommentairesService, // Injection du service Commentaires
+    private commentairesService: CommentairesService,
     private utilisateurService: UtilisateurService,
     private pileALireService: PileALireService,
     private livresEnCoursService: LivresEnCoursService
@@ -31,7 +31,7 @@ export class LivreInfosComponent implements OnInit {
   ngOnInit(): void {
     const livreId = Number(this.route.snapshot.paramMap.get('id'));
     this.getLivreById(livreId);
-    this.getCommentaires(livreId); // Récupération des commentaires pour ce livre
+    this.getCommentaires(livreId);
   }
 
   getLivreById(id: number): void {

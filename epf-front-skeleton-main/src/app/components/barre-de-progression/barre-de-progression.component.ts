@@ -6,17 +6,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./barre-de-progression.component.scss']
 })
 export class BarreDeProgressionComponent implements OnInit {
-  @Input() nombre_pages!: number;  // Nombre total de pages
-  @Input() progression!: number;     // Ajout de l'input pour progression
-  pourcentage: number = 0;           // Pourcentage affiché
-  showPopup: boolean = false;        // Afficher ou non le popup
+  @Input() nombre_pages!: number;
+  @Input() progression!: number;
+  pourcentage: number = 0;
+  showPopup: boolean = false;
 
   ngOnInit() {
-    this.calculerPourcentage(); // Calculer le pourcentage à l'initialisation
+    this.calculerPourcentage();
   }
 
   openPopup() {
-    this.showPopup = true; // Ouvrir le popup
+    this.showPopup = true;
   }
 
   onPageSaisie(pageActuelle: number) {
@@ -25,18 +25,18 @@ export class BarreDeProgressionComponent implements OnInit {
     } else {
       this.pourcentage = 0;
     }
-    this.showPopup = false; // Fermer le popup après la saisie
+    this.showPopup = false;
   }
 
   closePopup() {
-    this.showPopup = false; // Fermer le popup
+    this.showPopup = false;
   }
 
   private calculerPourcentage() {
     if (this.nombre_pages > 0 && this.progression > 0) {
       this.pourcentage = Math.round((this.progression / this.nombre_pages) * 100);
     } else {
-      this.pourcentage = 0; // Si aucune page, afficher 0
+      this.pourcentage = 0;
     }
   }
 }
